@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BrowserAutomationStudioProject>
+     <Script>RS(&quot;threads&quot;, false, false)!
+RESOURCE_1 = _result().get()
+RS(&quot;account_number&quot;, false, false)!
+RESOURCE_2 = _result().get()
+
+section(RESOURCE_1 /*{{threads}}*/,RESOURCE_2 /*{{account_number}}*/,1000000 /*1000000*/,0,function(){
+   section_start(&quot;Initialize&quot;, 0)!
+   browser()!
+   section_end()!
+
+   section_start(&quot;Request deny system/context.js&quot;, 32300)!
+   /*Dat:eyJzIjoicmVxdWVzdG1hc2tkZW55IiwiZSI6ImV4ZWN1dGVhbmRhZGQiLCJkIjpbeyJpZCI6IlZhbHVlIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiJzeXN0ZW0vY29udGV4dC5qcyIsImNsYXNzIjoic3RyaW5nIn1dfQ==*/
+   request_deny(&quot;system/context.js&quot;)!
+   section_end()!
+
+   section_start(&quot;&quot;, 30094)!
+   /*Dat:eyJzIjoiY2FjaGVtYXNrYWxsb3ciLCJlIjoiZXhlY3V0ZWFuZGFkZCIsInYiOjEsImQiOlt7ImlkIjoiVmFsdWUiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IioiLCJjbGFzcyI6InN0cmluZyJ9XX0=*/
+   /*Browser*/
+   cache_allow(&quot;*&quot;)!
+   section_end()!
+
+   section_start(&quot;If {{proxy_type}} == \u0022Http\u0022&quot;, 12337)!
+   /*Dat:eyJzIjoiaWYiLCJkIjpbeyJpZCI6IklmRXhwcmVzc2lvbiIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoie3twcm94eV90eXBlfX0gPT0gXCJIdHRwXCIiLCJjbGFzcyI6ImV4cHJlc3Npb24ifSx7ImlkIjoiSWZFbHNlIiwidHlwZSI6ImNoZWNrIiwiZGF0YSI6dHJ1ZX1dfQ==*/
+   RS(&quot;proxy_type&quot;, false, false)!
+   RESOURCE_728334 = _result().get()
+   IF_ELSE_EXPRESSION = RESOURCE_728334 == &quot;Http&quot;;
+   _if(IF_ELSE_EXPRESSION,function(){
+   section_insert()
+      section_start(&quot;_Proxy {{proxy}}&quot;, 27948)!
+      /*Dat:eyJzIjoicHJveHkiLCJlIjoiYWRkIiwiZCI6W3siaWQiOiJQcm94eVRleHQiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6Int7cHJveHl9fSIsImNsYXNzIjoic3RyaW5nIn0seyJpZCI6IlByb3h5VHlwZSIsInR5cGUiOiJzZWxlY3QiLCJkYXRhIjoiaHR0cCJ9LHsiaWQiOiJQcm94eUxvZ2luIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiIiLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJQcm94eVBhc3N3b3JkIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiIiLCJjbGFzcyI6InN0cmluZyJ9XX0=*/
+      RS(&quot;proxy&quot;, false, false)!
+      RESOURCE_966876 = _result().get()
+      /*Browser*/
+      var hash = proxy_parse(RESOURCE_966876)
+      hash[&quot;IsHttp&quot;] = true
+      var login = &quot;&quot;
+      var password = &quot;&quot;
+      if(login.length &gt; 0 &amp;&amp; password.length &gt; 0 )
+      {
+      hash[&quot;name&quot;] = login
+      hash[&quot;password&quot;] = password
+      }
+      set_proxy(hash[&quot;server&quot;], hash[&quot;Port&quot;], hash[&quot;IsHttp&quot;], hash[&quot;name&quot;], hash[&quot;password&quot;])!
+      section_end()!
+
+   })!
+   section_end()!
+
+   section_start(&quot;Else&quot;, 23769)!
+   _if(!IF_ELSE_EXPRESSION,function(){
+   section_insert()
+      section_start(&quot;_Proxy {{proxy}}&quot;, 28610)!
+      /*Dat:eyJzIjoicHJveHkiLCJlIjoiYWRkIiwiZCI6W3siaWQiOiJQcm94eVRleHQiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6Int7cHJveHl9fSIsImNsYXNzIjoic3RyaW5nIn0seyJpZCI6IlByb3h5VHlwZSIsInR5cGUiOiJzZWxlY3QiLCJkYXRhIjoic29ja3M1In0seyJpZCI6IlByb3h5TG9naW4iLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IiIsImNsYXNzIjoic3RyaW5nIn0seyJpZCI6IlByb3h5UGFzc3dvcmQiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IiIsImNsYXNzIjoic3RyaW5nIn1dfQ==*/
+      RS(&quot;proxy&quot;, false, false)!
+      RESOURCE_547088 = _result().get()
+      /*Browser*/
+      var hash = proxy_parse(RESOURCE_547088)
+      hash[&quot;IsHttp&quot;] = false
+      var login = &quot;&quot;
+      var password = &quot;&quot;
+      if(login.length &gt; 0 &amp;&amp; password.length &gt; 0 )
+      {
+      hash[&quot;name&quot;] = login
+      hash[&quot;password&quot;] = password
+      }
+      set_proxy(hash[&quot;server&quot;], hash[&quot;Port&quot;], hash[&quot;IsHttp&quot;], hash[&quot;name&quot;], hash[&quot;password&quot;])!
+      section_end()!
+
+   })!
+   section_end()!
+
+   section_start(&quot;Load http://qip.ru/mnt/pages/register&quot;, 17396)!
+   /*Dat:eyJzIjoibG9hZCIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W3siaWQiOiJMb2FkVXJsIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiJodHRwOi8vcWlwLnJ1L21udC9wYWdlcy9yZWdpc3RlciIsImNsYXNzIjoic3RyaW5nIn1dfQ==*/
+   /*Browser*/
+   load(&quot;http://qip.ru/mnt/pages/register&quot;)!
+   section_end()!
+
+   section_start(&quot;Type {{name}}\u003cTAB\u003e{{surname}}\u003cTAB\u003e{{login}}&quot;, 24733)!
+   /*Dat:eyJzIjoidHlwZSIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W3siaWQiOiJUeXBlRGF0YSIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoie3tuYW1lfX08VEFCPnt7c3VybmFtZX19PFRBQj57e2xvZ2lufX0iLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJUeXBlSW50ZXJ2YWwiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IjEwMCIsImNsYXNzIjoiaW50In1dfQ==*/
+   RS(&quot;name&quot;, false, false)!
+   RESOURCE_980479 = _result().get()
+   RS(&quot;surname&quot;, false, false)!
+   RESOURCE_454220 = _result().get()
+   RS(&quot;login&quot;, false, false)!
+   RESOURCE_587507 = _result().get()
+   /*Browser*/
+   page().type(RESOURCE_980479 + &quot;\u003cTAB\u003e&quot; + RESOURCE_454220 + &quot;\u003cTAB\u003e&quot; + RESOURCE_587507,100)!
+   section_end()!
+
+   section_start(&quot;Type \u003cRETURN\u003e&quot;, 24390)!
+   /*Dat:eyJzIjoidHlwZSIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W3siaWQiOiJUeXBlRGF0YSIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoiPFJFVFVSTj4iLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJUeXBlSW50ZXJ2YWwiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IjEwMCIsImNsYXNzIjoiaW50In1dfQ==*/
+   /*Browser*/
+   page().type(&quot;\u003cRETURN\u003e&quot;,100)!
+   section_end()!
+
+   section_start(&quot;Wait Full Page Load&quot;, 25245)!
+   /*Dat:eyJzIjoid2FpdGZ1bGxsb2FkIiwiZSI6ImV4ZWN1dGVhbmRhZGQiLCJkIjpbXX0=*/
+   /*Browser*/
+   wait_async_load()!
+   section_end()!
+
+   section_start(&quot;Type {{password}}&quot;, 21686)!
+   /*Dat:eyJzIjoidHlwZWVsZW1lbnQiLCJlIjoiZXhlY3V0ZWFuZGFkZCIsImQiOlt7ImlkIjoiVHlwZURhdGEiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6Int7cGFzc3dvcmR9fSIsImNsYXNzIjoic3RyaW5nIn0seyJpZCI6IlR5cGVJbnRlcnZhbCIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoiMTAwIiwiY2xhc3MiOiJpbnQifV0sInAiOnsiY3NzIjoiI3Bhc3N3b3JkIiwiY3VycmVudCI6ImNzcyIsIm1hdGNoIjoiPGlucHV0IHR5cGU9XCJwYXNzd29yZFwiIGNsYXNzPVwiaW5wdXRcIiBuYW0iLCJhdCI6IjMyMSwgMjUzIn19*/
+   RS(&quot;password&quot;, false, false)!
+   RESOURCE_811807 = _result().get()
+   /*Browser*/
+   wait_css(&quot;#password&quot;)!
+   css(&quot;#password&quot;).move()!
+   css(&quot;#password&quot;).type(RESOURCE_811807,100)!
+   section_end()!
+
+   section_start(&quot;Type {{password}}&quot;, 25855)!
+   /*Dat:eyJzIjoidHlwZWVsZW1lbnQiLCJlIjoiZXhlY3V0ZWFuZGFkZCIsImQiOlt7ImlkIjoiVHlwZURhdGEiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6Int7cGFzc3dvcmR9fSIsImNsYXNzIjoic3RyaW5nIn0seyJpZCI6IlR5cGVJbnRlcnZhbCIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoiMTAwIiwiY2xhc3MiOiJpbnQifV0sInAiOnsiY3NzIjoiI3Bhc3N3b3JkQ29uZmlybSIsImN1cnJlbnQiOiJjc3MiLCJtYXRjaCI6IjxpbnB1dCB0eXBlPVwicGFzc3dvcmRcIiBuYW1lPVwicGFzczJcIiBjbGFzIiwiYXQiOiIzNjMsIDMyOCJ9fQ==*/
+   RS(&quot;password&quot;, false, false)!
+   RESOURCE_784122 = _result().get()
+   /*Browser*/
+   wait_css(&quot;#passwordConfirm&quot;)!
+   css(&quot;#passwordConfirm&quot;).move()!
+   css(&quot;#passwordConfirm&quot;).type(RESOURCE_784122,100)!
+   section_end()!
+
+   section_start(&quot;Type \u003cTAB\u003e\u003cDOWN\u003e&quot;, 20338)!
+   /*Dat:eyJzIjoidHlwZSIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W3siaWQiOiJUeXBlRGF0YSIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoiPFRBQj48RE9XTj4iLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJUeXBlSW50ZXJ2YWwiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IjEwMCIsImNsYXNzIjoiaW50In1dfQ==*/
+   /*Browser*/
+   page().type(&quot;\u003cTAB\u003e\u003cDOWN\u003e&quot;,100)!
+   section_end()!
+
+   section_start(&quot;Type \u003cTAB\u003e&quot;, 9719)!
+   /*Dat:eyJzIjoidHlwZSIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W3siaWQiOiJUeXBlRGF0YSIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoiPFRBQj4iLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJUeXBlSW50ZXJ2YWwiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IjEwMCIsImNsYXNzIjoiaW50In1dfQ==*/
+   /*Browser*/
+   page().type(&quot;\u003cTAB\u003e&quot;,100)!
+   section_end()!
+
+   section_start(&quot;Type rand(10,20)&quot;, 30921)!
+   /*Dat:eyJzIjoidHlwZSIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W3siaWQiOiJUeXBlRGF0YSIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoicmFuZCgxMCwyMCkiLCJjbGFzcyI6ImV4cHJlc3Npb24ifSx7ImlkIjoiVHlwZUludGVydmFsIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiIxMDAiLCJjbGFzcyI6ImludCJ9XX0=*/
+   /*Browser*/
+   page().type(rand(10,20),100)!
+   section_end()!
+
+   section_start(&quot;Set random&quot;, 1313)!
+   /*Dat:eyJzIjoic2V0X3JhbmRvbSIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W10sInAiOnsiY3NzIjoiI2JpcnRobW9udGgiLCJjdXJyZW50IjoiY3NzIiwibWF0Y2giOiI8c2VsZWN0IG5hbWU9XCJtb250aFwiIGNsYXNzPVwicHVza2RlY29yIGxiIiwiYXQiOiIzNzUsIDQwOSJ9fQ==*/
+   /*Browser*/
+   wait_css(&quot;#birthmonth&quot;)!
+   css(&quot;#birthmonth&quot;).move()!
+   css(&quot;#birthmonth&quot;).set_random()!
+   section_end()!
+
+   section_start(&quot;Type \u003cTAB\u003e&quot;, 31203)!
+   /*Dat:eyJzIjoidHlwZSIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W3siaWQiOiJUeXBlRGF0YSIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoiPFRBQj4iLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJUeXBlSW50ZXJ2YWwiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IjEwMCIsImNsYXNzIjoiaW50In1dfQ==*/
+   /*Browser*/
+   page().type(&quot;\u003cTAB\u003e&quot;,100)!
+   section_end()!
+
+   section_start(&quot;Type rand(1980,1995)&quot;, 5548)!
+   /*Dat:eyJzIjoidHlwZSIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W3siaWQiOiJUeXBlRGF0YSIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoicmFuZCgxOTgwLDE5OTUpIiwiY2xhc3MiOiJleHByZXNzaW9uIn0seyJpZCI6IlR5cGVJbnRlcnZhbCIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoiMTAwIiwiY2xhc3MiOiJpbnQifV19*/
+   /*Browser*/
+   page().type(rand(1980,1995),100)!
+   section_end()!
+
+   section_start(&quot;&quot;, 929)!
+   /*Dat:eyJzIjoiY2FwdGNoYSIsImUiOiJleGVjdXRlYW5kYWRkIiwidiI6MSwiZCI6W3siaWQiOiJTYXZlIiwidHlwZSI6InZhciIsImRhdGEiOiJDQVBUQ0hBX1JFU1VMVCJ9LHsiaWQiOiJNZXRob2QiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6Int7Y2FwdGNoYV9zb2x2ZXJ9fSIsImNsYXNzIjoic3RyaW5nIn0seyJpZCI6IkFudGlnYXRlIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiJ7e2NhcHRjaGFfa2V5fX0iLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJTZXJ2ZXIiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6Int7Y2FwdGNoYV9pcH19IiwiY2xhc3MiOiJzdHJpbmcifV0sInAiOnsiY3NzIjoiaW1nIiwiY3NzMSI6ImltZyIsImNzczIiOiIiLCJjc3MzIjoiIiwiY3VycmVudCI6ImNzcyIsIm1hdGNoIjoiPGltZyBzcmM9XCJodHRwOi8vcGFzcy5xaXAucnUvcGFnZXMvY2FwdGMiLCJhdCI6IjMxOCwgODE4In19*/
+   RS(&quot;captcha_solver&quot;, false, false)!
+   RESOURCE_994462 = _result().get()
+   RS(&quot;captcha_key&quot;, false, false)!
+   RESOURCE_888722 = _result().get()
+   RS(&quot;captcha_ip&quot;, false, false)!
+   RESOURCE_464541 = _result().get()
+   /*Browser*/
+   if(RESOURCE_994462 == &quot;rucaptcha&quot;)
+   {
+   solver_property(&quot;rucaptcha&quot;,&quot;coordinatescaptcha&quot;,&quot;&quot;)
+   rucaptcha(RESOURCE_888722)
+   }
+   if(RESOURCE_994462 == &quot;antigate&quot;)
+   {
+   antigate(RESOURCE_888722)
+   }
+   if(RESOURCE_994462 == &quot;dbc&quot;)
+   {
+   dbc(RESOURCE_888722)
+   }
+   if(RESOURCE_994462 == &quot;2captcha&quot;)
+   {
+   solver_property(&quot;2captcha&quot;,&quot;coordinatescaptcha&quot;,&quot;&quot;)
+   twocaptcha(RESOURCE_888722)
+   }
+   if(RESOURCE_994462 == &quot;capmonster&quot; || RESOURCE_994462 == &quot;capmonsterimage&quot; || RESOURCE_994462 == &quot;capmonsteraudio&quot;)
+   {
+   solver_property(&quot;capmonster&quot;,&quot;serverurl&quot;,RESOURCE_464541)
+   solver_property(&quot;capmonster&quot;,&quot;bas_disable_image_convert&quot;,&quot;0&quot;)
+   solver_property(&quot;capmonster&quot;,&quot;CapMonsterModule&quot;,&quot;&quot;)
+   solver_property(&quot;capmonster&quot;,&quot;Task&quot;,&quot;&quot;)
+   capmonster(RESOURCE_888722)
+   }
+   wait_css(&quot;img&quot;)!
+   _if_else(RESOURCE_994462 == &quot;capmonster&quot; || RESOURCE_994462 == &quot;capmonsterimage&quot; || RESOURCE_994462 == &quot;capmonsteraudio&quot;, function(){
+   css(&quot;img&quot;).attr(&quot;src&quot;)!
+   VAR_CAPTCHA_RESULT = _result()
+   _if(VAR_CAPTCHA_RESULT.length == 0, function(){
+   css(&quot;img&quot;).css(&quot;img&quot;).attr(&quot;src&quot;)!
+   VAR_CAPTCHA_RESULT = _result()
+   })!
+   if(VAR_CAPTCHA_RESULT.length == 0)
+   {
+   fail(tr(&quot;Image tag not found. Is this element captcha?&quot;))
+   }
+   wait_load(VAR_CAPTCHA_RESULT)!
+   cache_get_base64(VAR_CAPTCHA_RESULT)!
+   if(_result().length == 0)
+   {
+   fail(tr(&quot;Url &quot;) + VAR_CAPTCHA_RESULT + tr(&quot; is not present in cache. Please enable cache before page load with Cache Mask Allow action&quot;))
+   }
+   solve_base64(&quot;capmonster&quot;, _result())!
+   VAR_CAPTCHA_RESULT = _result()
+   },function(){
+   css(&quot;img&quot;).render_base64()!
+   solve_base64(RESOURCE_994462, _result())!
+   VAR_CAPTCHA_RESULT = _result()
+   })!
+   section_end()!
+
+   section_start(&quot;Type [[CAPTCHA_RESULT]]&quot;, 23158)!
+   /*Dat:eyJzIjoidHlwZWVsZW1lbnQiLCJlIjoiZXhlY3V0ZWFuZGFkZCIsImQiOlt7ImlkIjoiVHlwZURhdGEiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IltbQ0FQVENIQV9SRVNVTFRdXSIsImNsYXNzIjoic3RyaW5nIn0seyJpZCI6IlR5cGVJbnRlcnZhbCIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoiMTAwIiwiY2xhc3MiOiJpbnQifV0sInAiOnsiY3NzIjoiI2NhcHRjaGEyIiwiY3NzMSI6IiNjYXB0Y2hhMiIsImNzczIiOiI6bnRoLWNoaWxkKDEwKSA+IDpudGgtY2hpbGQoMikgPiA6bnRoLWNoaWxkKDMpIiwiY3NzMyI6IiIsImN1cnJlbnQiOiJjc3MiLCJtYXRjaCI6IjxpbnB1dCB0eXBlPVwidGV4dFwiIGNsYXNzPVwiaW5wdXQgaW5wdXRDYXAiLCJhdCI6IjQ1MiwgNzg1In19*/
+   /*Browser*/
+   wait_css(&quot;#captcha2&quot;)!
+   css(&quot;#captcha2&quot;).move()!
+   css(&quot;#captcha2&quot;).type(VAR_CAPTCHA_RESULT,100)!
+   section_end()!
+
+   section_start(&quot;&quot;, 24370)!
+   /*Dat:eyJzIjoiUmVDYXB0Y2hhMiIsImUiOiJleGVjdXRlYW5kYWRkIiwidiI6MSwiZCI6W3siaWQiOiJUaW1lc1RvU29sdmUiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IjUiLCJjbGFzcyI6ImludCJ9LHsiaWQiOiJNZXRob2QiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6Int7Y2FwdGNoYV9zb2x2ZXJ9fSIsImNsYXNzIjoic3RyaW5nIn0seyJpZCI6IlJ1Y2FwdGNoYSIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoie3tjYXB0Y2hhX2tleX19IiwiY2xhc3MiOiJzdHJpbmcifSx7ImlkIjoiU2VydmVyIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiJ7e2NhcHRjaGFfaXB9fSIsImNsYXNzIjoic3RyaW5nIn1dLCJwIjp7ImNzcyI6IiNjYXB0Y2hhID4gOm50aC1jaGlsZCgxKSA+IGRpdiA+IGlmcmFtZSIsImNzczEiOiIiLCJjc3MyIjoiIiwiY3NzMyI6IiIsImN1cnJlbnQiOiJjc3MiLCJtYXRjaCI6IjxpZnJhbWUgc3JjPVwiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9yZWNhIiwiYXQiOiIyNzIsIDcwOCJ9fQ==*/
+   RS(&quot;captcha_solver&quot;, false, false)!
+   RESOURCE_953481 = _result().get()
+   RS(&quot;captcha_key&quot;, false, false)!
+   RESOURCE_678632 = _result().get()
+   RS(&quot;captcha_ip&quot;, false, false)!
+   RESOURCE_277294 = _result().get()
+   /*Browser*/
+   if(RESOURCE_953481 == &quot;rucaptcha&quot;)
+   {
+   solver_property(&quot;rucaptcha&quot;,&quot;coordinatescaptcha&quot;,&quot;1&quot;)
+   rucaptcha(RESOURCE_678632)
+   }
+   if(RESOURCE_953481 == &quot;2captcha&quot;)
+   {
+   solver_property(&quot;2captcha&quot;,&quot;coordinatescaptcha&quot;,&quot;1&quot;)
+   twocaptcha(RESOURCE_678632)
+   }
+   if(RESOURCE_953481 == &quot;antigate&quot;)
+   {
+   antigate(RESOURCE_678632)
+   }
+   if(RESOURCE_953481 == &quot;dbc&quot;)
+   {
+   dbc(RESOURCE_678632)
+   }
+   if(RESOURCE_953481 == &quot;capmonsterimage&quot; || RESOURCE_953481 == &quot;capmonsteraudio&quot; || RESOURCE_953481 == &quot;capmonster&quot;)
+   {
+   solver_property(&quot;capmonster&quot;,&quot;bas_disable_image_convert&quot;,&quot;1&quot;)
+   solver_property(&quot;capmonster&quot;,&quot;serverurl&quot;,RESOURCE_277294)
+   capmonster(RESOURCE_678632)
+   }
+   _if(RESOURCE_953481 == &quot;capmonsterimage&quot; || RESOURCE_953481 == &quot;capmonsteraudio&quot;  || RESOURCE_953481 == &quot;capmonster&quot;, function(){
+   cache_allow(&quot;recaptcha/api2/payload&quot;)!
+   })!
+   RECAPTCHA2_FIRST_TIME = true
+   wait_css(&quot;#captcha \u003e :nth-child(1) \u003e div \u003e iframe&quot;)!
+   _do(function(){
+   if(_iterator() &gt; 60)
+   fail(&quot;Recaptcha image load timeout&quot;)
+   frame(&quot;google.com/recaptcha/api2/anchor&quot;).script(&quot;document.getElementById('recaptcha-anchor').className.indexOf('recaptcha-checkbox-unchecked') &gt;= 0&quot;)!
+   if(_result() == &quot;true&quot;)
+   {
+   RECAPTCHA2_SOLVED = true
+   _break()
+   }
+   sleep(1000)!
+   })!
+   css(&quot;#captcha \u003e :nth-child(1) \u003e div \u003e iframe&quot;).move()!
+   cache_data_clear()!
+   css(&quot;#captcha \u003e :nth-child(1) \u003e div \u003e iframe&quot;).system_click()!
+   _if_else(RESOURCE_953481 == &quot;capmonsteraudio&quot;, function(){
+   _do(function(){
+   _do(function(){
+   if(_iterator() &gt; 60)
+   fail(&quot;Recaptcha 2 wait timeout&quot;)
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('recaptcha-verify-button').className.indexOf('rc-button-default-disabled') &lt; 0&quot;)!
+   if(_result() == &quot;true&quot;)
+   {
+   RECAPTCHA2_SOLVED = false
+   _break()
+   }
+   frame(&quot;google.com/recaptcha/api2/anchor&quot;).script(&quot;document.getElementById('recaptcha-anchor').className.indexOf('recaptcha-checkbox-checked') &gt;= 0&quot;)!
+   if(_result() == &quot;true&quot;)
+   {
+   RECAPTCHA2_SOLVED = true
+   _break()
+   }
+   sleep(1000)!
+   })!
+   if(RECAPTCHA2_SOLVED)
+   _break()
+   if(_iterator() &gt; 5)
+   fail(&quot;Too many fails solve recaptcha 2&quot;)
+   _if(RECAPTCHA2_FIRST_TIME, function(){
+   _do(function(){
+   if(_iterator() &gt; 60)
+   fail(&quot;Recaptcha image load timeout&quot;)
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-dynamic-selected').length&quot;)!
+   if(_result() == &quot;0&quot;)
+   _break()
+   sleep(1000)!
+   })!
+   sleep(3000)!
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('recaptcha-audio-button').getBoundingClientRect().top&quot;)!
+   TOP_BUTTON = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('recaptcha-audio-button').getBoundingClientRect().left&quot;)!
+   LEFT_BUTTON = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().top + window.scrollY&quot;)!
+   TOP = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().left + window.scrollX&quot;)!
+   LEFT = parseInt(_result())
+   move(LEFT + LEFT_BUTTON + 12, TOP + TOP_BUTTON + 12)!
+   cache_data_clear()!
+   mouse(LEFT + LEFT_BUTTON + 12, TOP + TOP_BUTTON + 12)!
+   })!
+   RECAPTCHA2_FIRST_TIME = false
+   RECAPTCHA2_TYPE = &quot;&quot;
+   _do(function(){
+   if(_iterator() &gt; 60)
+   fail(&quot;Recaptcha type detection timeout&quot;)
+   is_load(&quot;recaptcha/api2/payload&quot;)!
+   if(_result())
+   {
+   RECAPTCHA2_TYPE = &quot;audio&quot;
+   _break()
+   }
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-text-instructions').length&quot;)!
+   if(parseInt(_result()) &gt; 0)
+   {
+   RECAPTCHA2_TYPE = &quot;associations&quot;
+   _break()
+   }
+   sleep(1000)!
+   })!
+   _if(RECAPTCHA2_TYPE == &quot;audio&quot;, function(){
+   cache_get_base64(&quot;recaptcha/api2/payload&quot;)!
+   solver_property(&quot;capmonster&quot;,&quot;CapMonsterModule&quot;,&quot;ZennoLab.AudioReCaptcha&quot;)
+   solve_base64(&quot;capmonster&quot;, _result())!
+   RECAPTCHA2_SOLVED = _result()
+   if(RECAPTCHA2_SOLVED.indexOf(&quot;133193320491090004119440&quot;) &gt;= 0)
+   {
+   fail(&quot;Your IP was banned!&quot;)
+   }
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('audio-response').getBoundingClientRect().top&quot;)!
+   TOP_BUTTON = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('audio-response').getBoundingClientRect().left&quot;)!
+   LEFT_BUTTON = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().top + window.scrollY&quot;)!
+   TOP = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().left + window.scrollX&quot;)!
+   LEFT = parseInt(_result())
+   move(LEFT + LEFT_BUTTON + 12, TOP + TOP_BUTTON + 12)!
+   mouse(LEFT + LEFT_BUTTON + 12, TOP + TOP_BUTTON + 12)!
+   page().type(RECAPTCHA2_SOLVED,100)!
+   })!
+   _if(RECAPTCHA2_TYPE == &quot;associations&quot;, function(){
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.querySelectorAll('.rc-text-desc-wrapper span')[0].innerHTML + ':' + Array.prototype.slice.call(document.querySelectorAll('.rc-text-choices td')).map(function(el) { return el.innerHTML }).join(';')&quot;)!
+   solver_property(&quot;capmonster&quot;,&quot;CapMonsterModule&quot;,&quot;ZennoLab.ReCaptchaAssociation&quot;)
+   solver_property(&quot;capmonster&quot;,&quot;Task&quot;,_result())
+   solve_base64(&quot;capmonster&quot;, &quot;&quot;)!
+   CLICKS = _result().split(&quot;;&quot;)
+   _do(function(){
+   if(_iterator() &gt; CLICKS.length)
+   _break(1)
+   CLICK = CLICKS[_iterator() - 1]
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;Array.prototype.slice.call(document.querySelectorAll('.rc-text-choices td')).find(function(el) { return el.innerHTML == &quot; + JSON.stringify(CLICK) + &quot; }).getBoundingClientRect().top&quot;)!
+   TOP_BUTTON = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;Array.prototype.slice.call(document.querySelectorAll('.rc-text-choices td')).find(function(el) { return el.innerHTML == &quot; + JSON.stringify(CLICK) + &quot; }).getBoundingClientRect().left&quot;)!
+   LEFT_BUTTON = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().top + window.scrollY&quot;)!
+   TOP = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().left + window.scrollX&quot;)!
+   LEFT = parseInt(_result())
+   move(LEFT + LEFT_BUTTON + 30, TOP + TOP_BUTTON + 30)!
+   mouse(LEFT + LEFT_BUTTON + 30, TOP + TOP_BUTTON + 30)!
+   sleep(1000)!
+   })!
+   })!
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('recaptcha-verify-button').getBoundingClientRect().top&quot;)!
+   TOP_BUTTON = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('recaptcha-verify-button').getBoundingClientRect().left&quot;)!
+   LEFT_BUTTON = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().top + window.scrollY&quot;)!
+   TOP = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().left + window.scrollX&quot;)!
+   LEFT = parseInt(_result())
+   move(LEFT + LEFT_BUTTON + 50, TOP + TOP_BUTTON + 15)!
+   cache_data_clear()!
+   mouse(LEFT + LEFT_BUTTON + 50, TOP + TOP_BUTTON + 15)!
+   })!
+   },function(){
+   _do(function(){
+   _do(function(){
+   if(_iterator() &gt; 60)
+   fail(&quot;Recaptcha 2 wait timeout&quot;)
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('recaptcha-verify-button').className.indexOf('rc-button-default-disabled') &lt; 0&quot;)!
+   if(_result() == &quot;true&quot;)
+   {
+   RECAPTCHA2_SOLVED = false
+   _break()
+   }
+   frame(&quot;google.com/recaptcha/api2/anchor&quot;).script(&quot;document.getElementById('recaptcha-anchor').className.indexOf('recaptcha-checkbox-checked') &gt;= 0&quot;)!
+   if(_result() == &quot;true&quot;)
+   {
+   RECAPTCHA2_SOLVED = true
+   _break()
+   }
+   sleep(1000)!
+   })!
+   _do(function(){
+   if(_iterator() &gt; 60)
+   fail(&quot;Recaptcha image load timeout&quot;)
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-dynamic-selected').length&quot;)!
+   if(_result() == &quot;0&quot;)
+   _break()
+   sleep(1000)!
+   })!
+   if(RECAPTCHA2_SOLVED)
+   _break()
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;window.getComputedStyle(document.getElementsByClassName('rc-imageselect-incorrect-response')[0])['display']&quot;)!
+   _if(_result() != &quot;none&quot; &amp;&amp; !RECAPTCHA2_SOLVED, function(){
+   solver_failed()
+   wait_load(&quot;recaptcha/api2/payload&quot;)!
+   })!
+   if(_iterator() &gt; 5)
+   fail(&quot;Too many fails solve recaptcha 2&quot;)
+   _if(RECAPTCHA2_FIRST_TIME, function(){
+   RECAPTCHA2_FIRST_TIME = false
+   wait_load(&quot;recaptcha/api2/payload&quot;)!
+   })!
+   sleep(3000)!
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).focus()!
+   _do(function(){
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-table-44').length&quot;)!
+   IS44 = parseInt(_result()) &gt; 0
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-tileselected').length&quot;)!
+   RECAPTCHA2_TOTAL_SELECTED = parseInt(_result())
+   if(!(RECAPTCHA2_TOTAL_SELECTED&gt;0 || IS44 &amp;&amp; (RESOURCE_953481 == &quot;capmonsterimage&quot; || RESOURCE_953481 == &quot;capmonster&quot;)))
+   _break()
+   if(_iterator() &gt; 10)
+   fail(&quot;Too many recaptcha 2 reloads&quot;)
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('recaptcha-reload-button').getBoundingClientRect().top&quot;)!
+   TOP_RECAPTCHA_RELOAD_BUTTON = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('recaptcha-reload-button').getBoundingClientRect().left&quot;)!
+   LEFT_RECAPTCHA_RELOAD_BUTTON = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().top + window.scrollY&quot;)!
+   TOP = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().left + window.scrollX&quot;)!
+   LEFT = parseInt(_result())
+   move(LEFT + LEFT_RECAPTCHA_RELOAD_BUTTON + 12, TOP + TOP_RECAPTCHA_RELOAD_BUTTON + 12)!
+   cache_data_clear()!
+   mouse(LEFT + LEFT_RECAPTCHA_RELOAD_BUTTON + 12, TOP + TOP_RECAPTCHA_RELOAD_BUTTON + 12)!
+   wait_load(&quot;recaptcha/api2/payload&quot;)!
+   sleep(3000)!
+   })!
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-payload')[0].getBoundingClientRect().bottom&quot;)!
+   BOTTOM_IMAGE = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-challenge')[0].getBoundingClientRect().top&quot;)!
+   TOP_IMAGE = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-table-33').length&quot;)!
+   IS33 = parseInt(_result()) &gt; 0
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-table-44').length&quot;)!
+   IS44 = parseInt(_result()) &gt; 0
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-table-42').length&quot;)!
+   IS42 = parseInt(_result()) &gt; 0
+   if(!IS33 &amp;&amp; !IS44 &amp;&amp; !IS42)
+   {
+   fail(&quot;Unknown captcha type&quot;)
+   }
+   _if_else(RESOURCE_953481 == &quot;capmonsterimage&quot; || RESOURCE_953481 == &quot;capmonster&quot;, function(){
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;(function(){var tmp = document.createElement('DIV');tmp.innerHTML = document.getElementsByClassName('rc-imageselect-desc-wrapper')[0].innerHTML.split('&lt;br&gt;')[0];return tmp.textContent})()&quot;)!
+   solver_property(&quot;capmonster&quot;,&quot;Task&quot;,_result())
+   solver_property(&quot;capmonster&quot;,&quot;CapMonsterModule&quot;,&quot;ZennoLab.ReCaptcha2&quot;)
+   cache_get_base64(&quot;recaptcha/api2/payload&quot;)!
+   solve_base64(&quot;capmonster&quot;, _result())!
+   RECAPTCHA2_SOLVED = _result()
+   },function(){
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).render_base64()!
+   solve_base64(RESOURCE_953481, _result())!
+   RECAPTCHA2_SOLVED = _result()
+   })!
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('rc-imageselect-target').getBoundingClientRect().top&quot;)!
+   TOP_PIC = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('rc-imageselect-target').getBoundingClientRect().bottom&quot;)!
+   BOTTOM_PIC = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('rc-imageselect-target').getBoundingClientRect().left&quot;)!
+   LEFT_PIC = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('rc-imageselect-target').getBoundingClientRect().right&quot;)!
+   RIGHT_PIC = parseInt(_result())
+   CLICKS = NumbersParseRecaptcha2(RECAPTCHA2_SOLVED,IS33,IS44,IS42,TOP_PIC,LEFT_PIC,BOTTOM_PIC,RIGHT_PIC,BOTTOM_IMAGE,TOP_IMAGE)
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;window.getComputedStyle(self)['visibility']&quot;)!
+   if(_result() == &quot;hidden&quot;)
+   fail(&quot;Captcha not visible&quot;)
+   _do(function(){
+   if(_iterator() &gt; CLICKS.length)
+   _break(1)
+   cache_data_clear()!
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-tileselected').length&quot;)!
+   RECAPTCHA2_TOTAL_SELECTED = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().top + window.scrollY&quot;)!
+   TOP = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().left + window.scrollX&quot;)!
+   LEFT = parseInt(_result())
+   move(LEFT + CLICKS[_iterator() - 1][0],TOP + CLICKS[_iterator() - 1][1])!
+   mouse(LEFT + CLICKS[_iterator() - 1][0],TOP + CLICKS[_iterator() - 1][1])!
+   _do(function(){
+   if(_iterator() &gt; 30)
+   fail(&quot;Failed to wait select responce&quot;)
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementsByClassName('rc-imageselect-tileselected').length&quot;)!
+   if(RECAPTCHA2_TOTAL_SELECTED != parseInt(_result()))
+   _break()
+   is_load(&quot;recaptcha/api2/payload&quot;)!
+   if(_result())
+   _break()
+   sleep(1000)!
+   })!
+   })!
+   sleep(1000)!
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('recaptcha-verify-button').getBoundingClientRect().top&quot;)!
+   TOP_RECAPTCHA_VERIFY_BUTTON = parseInt(_result())
+   frame(&quot;google.com/recaptcha/api2/frame&quot;).script(&quot;document.getElementById('recaptcha-verify-button').getBoundingClientRect().left&quot;)!
+   LEFT_RECAPTCHA_VERIFY_BUTTON = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().top + window.scrollY&quot;)!
+   TOP = parseInt(_result())
+   match(&quot;src=\&quot;https://www.google.com/recaptcha/api2/frame&quot;).script(&quot;self.getBoundingClientRect().left + window.scrollX&quot;)!
+   LEFT = parseInt(_result())
+   move(LEFT + LEFT_RECAPTCHA_VERIFY_BUTTON + 50, TOP + TOP_RECAPTCHA_VERIFY_BUTTON + 15)!
+   cache_data_clear()!
+   mouse(LEFT + LEFT_RECAPTCHA_VERIFY_BUTTON + 50, TOP + TOP_RECAPTCHA_VERIFY_BUTTON + 15)!
+   })!
+   })!
+   section_end()!
+
+   section_start(&quot;Move and click on css :nth-child(2) \u003e .button&quot;, 21200)!
+   /*Dat:eyJzIjoibW92ZWFuZGNsaWNrZWxlbWVudCIsImUiOiJleGVjdXRlYW5kYWRkIiwidXciOiIxIiwiZCI6W10sInAiOnsiY3NzIjoiOm50aC1jaGlsZCgyKSA+IC5idXR0b24iLCJjdXJyZW50IjoiY3NzIiwibWF0Y2giOiI8YnV0dG9uIGNsYXNzPVwiYnV0dG9uXCI+0JPQvtGC0L7QstC+PGkgY2xhc3M9XCJsIiwiYXQiOiIyNzAsIDg1NCJ9fQ==*/
+   /*Browser*/
+   wait_css(&quot;:nth-child(2) \u003e .button&quot;)!
+   css(&quot;:nth-child(2) \u003e .button&quot;).move()!
+   css(&quot;:nth-child(2) \u003e .button&quot;).system_click()!
+   wait_async_load()!
+   section_end()!
+
+   section_start(&quot;Load https://mail.qip.ru&quot;, 1739)!
+   /*Dat:eyJzIjoibG9hZCIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W3siaWQiOiJMb2FkVXJsIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiJodHRwczovL21haWwucWlwLnJ1IiwiY2xhc3MiOiJzdHJpbmcifV19*/
+   /*Browser*/
+   load(&quot;https://mail.qip.ru&quot;)!
+   section_end()!
+
+   section_start(&quot;Move and click on css .reg-btn&quot;, 26396)!
+   /*Dat:eyJzIjoibW92ZWFuZGNsaWNrZWxlbWVudCIsImUiOiJleGVjdXRlYW5kYWRkIiwidXciOiIxIiwiZCI6W10sInAiOnsiY3NzIjoiLnJlZy1idG4iLCJjdXJyZW50IjoiY3NzIiwibWF0Y2giOiI8YnV0dG9uIHR5cGU9XCJzdWJtaXRcIiBjbGFzcz1cInJlZy1idG4gcmVnIiwiYXQiOiI1ODgsIDQzOSJ9fQ==*/
+   /*Browser*/
+   wait_css(&quot;.reg-btn&quot;)!
+   css(&quot;.reg-btn&quot;).move()!
+   css(&quot;.reg-btn&quot;).system_click()!
+   wait_async_load()!
+   section_end()!
+
+   section_start(&quot;Save result {{login}}@qip.ru:{{password}}&quot;, 7503)!
+   /*Dat:eyJzIjoicmVzdWx0IiwiZSI6ImV4ZWN1dGVhbmRhZGQiLCJkIjpbeyJpZCI6IlZhbHVlIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiJ7e2xvZ2lufX1AcWlwLnJ1Ont7cGFzc3dvcmR9fSIsImNsYXNzIjoic3RyaW5nIn0seyJpZCI6IlNlbGVjdCIsInR5cGUiOiJzZWxlY3QiLCJkYXRhIjoiMSJ9XX0=*/
+   RS(&quot;login&quot;, false, false)!
+   RESOURCE_207525 = _result().get()
+   RS(&quot;password&quot;, false, false)!
+   RESOURCE_458794 = _result().get()
+   result(RESOURCE_207525 + &quot;@qip.ru:&quot; + RESOURCE_458794, 0)
+   section_end()!
+
+   section_start(&quot;Log Done&quot;, 27976)!
+   /*Dat:eyJzIjoibG9nIiwiZSI6ImV4ZWN1dGVhbmRhZGQiLCJkIjpbeyJpZCI6IkxvZ1RleHQiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IkRvbmUiLCJjbGFzcyI6InN0cmluZyJ9XX0=*/
+   log(&quot;Done&quot;)
+   section_end()!
+
+})!</Script>
+     <ScriptName></ScriptName>
+     <ScriptVersion></ScriptVersion>
+     <AvailableLanguages>en,ru</AvailableLanguages>
+     <OutputTitle1 ru="Почта Квип" en="Qip Emails"/>
+     <OutputTitle2 ru="Second Results" en="Second Results"/>
+     <OutputTitle3 ru="Third Results" en="Third Results"/>
+     <OutputTitle4 ru="Fourth Results" en="Fourth Results"/>
+     <OutputTitle5 ru="Fifth Results" en="Fifth Results"/>
+     <OutputTitle6 ru="Sixth Results" en="Sixth Results"/>
+     <OutputTitle7 ru="Seventh Results" en="Seventh Results"/>
+     <OutputTitle8 ru="Eighth Results" en="Eighth Results"/>
+     <OutputTitle9 ru="Ninth Results" en="Ninth Results"/>
+     <OutputVisible1>1</OutputVisible1>
+     <OutputVisible2>0</OutputVisible2>
+     <OutputVisible3>0</OutputVisible3>
+     <OutputVisible4>0</OutputVisible4>
+     <OutputVisible5>0</OutputVisible5>
+     <OutputVisible6>0</OutputVisible6>
+     <OutputVisible7>0</OutputVisible7>
+     <OutputVisible8>0</OutputVisible8>
+     <OutputVisible9>0</OutputVisible9>
+     <ModelList>
+          <Model>
+               <Name>threads</Name>
+               <Description ru="Количество Потоков" en="Thread Number"/>
+               <SectionName ru="Общие" en="General"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedInteger</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedInteger</AllowedTypes>
+               <Value>10</Value>
+               <MinValue>1</MinValue>
+               <MaxValue>99999999</MaxValue>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>account_number</Name>
+               <Description ru="Количество Аккаунтов" en="Account Number"/>
+               <SectionName ru="Общие" en="General"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedInteger</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedInteger</AllowedTypes>
+               <Value>100</Value>
+               <MinValue>1</MinValue>
+               <MaxValue>99999999</MaxValue>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>login</Name>
+               <Description ru="Логин" en="Login"/>
+               <SectionName ru="Настройки Аккаунта" en="Account Settings"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>RandomString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>RandomString,LinesFromFile</AllowedTypes>
+               <Value>&lt;ELowCons&gt;&lt;ELowVow&gt;&lt;ELowCons&gt;&lt;ELowVow&gt;&lt;ELowCons&gt;{.|}&lt;ELowVow&gt;&lt;ELowCons&gt;&lt;ELowVow&gt;&lt;AnyLetter&gt;{.|}{&lt;AnyDigit&gt;&lt;AnyDigit&gt;|&lt;AnyDigit&gt;&lt;AnyDigit&gt;&lt;AnyDigit&gt;|&lt;AnyDigit&gt;}</Value>
+          </Model>
+          <Defaults>
+               <Default>
+                    <Name>login</Name>
+                    <Description ru="Логин" en="Login"/>
+                    <SectionName ru="Настройки Аккаунта" en="Account Settings"/>
+                    <VisibilityConditionValue></VisibilityConditionValue>
+                    <VisibilityConditionVariable></VisibilityConditionVariable>
+                    <Type>LinesFromFile</Type>
+                    <IsAdvanced>0</IsAdvanced>
+                    <Visible>1</Visible>
+                    <Enabled>1</Enabled>
+                    <AllowedTypes>RandomString,LinesFromFile</AllowedTypes>
+                    <Filename></Filename>
+                    <Clean>0</Clean>
+                    <Read>1</Read>
+                    <Mix>0</Mix>
+                    <MaxSuccess>1</MaxSuccess>
+                    <MaxFail>10</MaxFail>
+                    <MaxSimultaneous>1</MaxSimultaneous>
+                    <Interval>0</Interval>
+                    <ReloadInterval>0</ReloadInterval>
+                    <RenewInterval>-1</RenewInterval>
+                    <Greedy>0</Greedy>
+               </Default>
+          </Defaults>
+          <Model>
+               <Name>name</Name>
+               <Description ru="Имя" en="Name"/>
+               <SectionName ru="Настройки Аккаунта" en="Account Settings"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>RandomString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>RandomString,LinesFromFile</AllowedTypes>
+               <Value>&lt;RMaleName&gt;</Value>
+          </Model>
+          <Defaults>
+               <Default>
+                    <Name>name</Name>
+                    <Description ru="Имя" en="Name"/>
+                    <SectionName ru="Настройки Аккаунта" en="Account Settings"/>
+                    <VisibilityConditionValue></VisibilityConditionValue>
+                    <VisibilityConditionVariable></VisibilityConditionVariable>
+                    <Type>LinesFromFile</Type>
+                    <IsAdvanced>0</IsAdvanced>
+                    <Visible>1</Visible>
+                    <Enabled>1</Enabled>
+                    <AllowedTypes>RandomString,LinesFromFile</AllowedTypes>
+                    <Filename></Filename>
+                    <Clean>0</Clean>
+                    <Read>1</Read>
+                    <Mix>1</Mix>
+                    <MaxSuccess>1000</MaxSuccess>
+                    <MaxFail>1000</MaxFail>
+                    <MaxSimultaneous>1000</MaxSimultaneous>
+                    <Interval>0</Interval>
+                    <ReloadInterval>0</ReloadInterval>
+                    <RenewInterval>-1</RenewInterval>
+                    <Greedy>0</Greedy>
+               </Default>
+          </Defaults>
+          <Model>
+               <Name>surname</Name>
+               <Description ru="Фамилия" en="Surname"/>
+               <SectionName ru="Настройки Аккаунта" en="Account Settings"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>RandomString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>RandomString,LinesFromFile</AllowedTypes>
+               <Value>&lt;RSurname&gt;</Value>
+          </Model>
+          <Defaults>
+               <Default>
+                    <Name>surname</Name>
+                    <Description ru="Фамилия" en="Surname"/>
+                    <SectionName ru="Настройки Аккаунта" en="Account Settings"/>
+                    <VisibilityConditionValue></VisibilityConditionValue>
+                    <VisibilityConditionVariable></VisibilityConditionVariable>
+                    <Type>LinesFromFile</Type>
+                    <IsAdvanced>0</IsAdvanced>
+                    <Visible>1</Visible>
+                    <Enabled>1</Enabled>
+                    <AllowedTypes>RandomString,LinesFromFile</AllowedTypes>
+                    <Filename></Filename>
+                    <Clean>0</Clean>
+                    <Read>1</Read>
+                    <Mix>0</Mix>
+                    <MaxSuccess>1000</MaxSuccess>
+                    <MaxFail>1000</MaxFail>
+                    <MaxSimultaneous>1000</MaxSimultaneous>
+                    <Interval>5000</Interval>
+                    <ReloadInterval>0</ReloadInterval>
+                    <RenewInterval>-1</RenewInterval>
+                    <Greedy>0</Greedy>
+               </Default>
+          </Defaults>
+          <Model>
+               <Name>proxy</Name>
+               <Description ru="Прокси. Используйте пустую строку чтобы отключить прокси" en="Proxy. Use empty line to disable proxy"/>
+               <SectionName ru="Прокси" en="Proxy"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>LinesFromFile</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString,LinesFromFile</AllowedTypes>
+               <Filename></Filename>
+               <Clean>0</Clean>
+               <Read>1</Read>
+               <Mix>0</Mix>
+               <MaxSuccess>3</MaxSuccess>
+               <MaxFail>5</MaxFail>
+               <MaxSimultaneous>1</MaxSimultaneous>
+               <Interval>5000</Interval>
+               <ReloadInterval>0</ReloadInterval>
+               <RenewInterval>-1</RenewInterval>
+               <Greedy>0</Greedy>
+          </Model>
+          <Defaults>
+               <Default>
+                    <Name>proxy</Name>
+                    <Description ru="Прокси. Используйте пустую строку чтобы отключить прокси" en="Proxy. Use empty line to disable proxy"/>
+                    <SectionName ru="Прокси" en="Proxy"/>
+                    <VisibilityConditionValue></VisibilityConditionValue>
+                    <VisibilityConditionVariable></VisibilityConditionVariable>
+                    <Type>FixedString</Type>
+                    <IsAdvanced>0</IsAdvanced>
+                    <Visible>1</Visible>
+                    <Enabled>1</Enabled>
+                    <AllowedTypes>FixedString,LinesFromFile</AllowedTypes>
+                    <Value></Value>
+                    <NotEmpty>0</NotEmpty>
+               </Default>
+          </Defaults>
+          <Model>
+               <Name>proxy_type</Name>
+               <Description ru="Тип Прокси" en="Proxy Type"/>
+               <SectionName ru="Прокси" en="Proxy"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>Http
+Socks5</Values>
+               <Selected>0</Selected>
+               <SelectType>1</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>captcha_solver</Name>
+               <Description ru="Сервис для решение капчи" en="Captcha solve service"/>
+               <SectionName ru="Капча" en="Captcha"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>Select</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>Select</AllowedTypes>
+               <Values>manual
+antigate
+rucaptcha
+dbc
+2captcha
+capmonsteraudio
+capmonsterimage</Values>
+               <Selected>0</Selected>
+               <SelectType>1</SelectType>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>captcha_key</Name>
+               <Description ru="Ключ к сервису" en="Captcha service key"/>
+               <SectionName ru="Капча" en="Captcha"/>
+               <VisibilityConditionValue>antigate|rucaptcha|dbc|2captcha|capmonsteraudio|capmonsterimage</VisibilityConditionValue>
+               <VisibilityConditionVariable>captcha_solver</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value></Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>password</Name>
+               <Description ru="Пароль" en="Password"/>
+               <SectionName ru="Настройки Аккаунта" en="Account Settings"/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>RandomString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>RandomString</AllowedTypes>
+               <Value>&lt;AnyLetter&gt;&lt;AnyLetter&gt;&lt;AnyLetter&gt;&lt;AnyLetter&gt;&lt;AnyLetter&gt;&lt;AnyLetter&gt;&lt;AnyLetter&gt;&lt;AnyLetter&gt;&lt;AnyLetter&gt;&lt;AnyLetter&gt;&lt;AnyLetter&gt;&lt;AnyDigit&gt;&lt;AnyDigit&gt;</Value>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>captcha_ip</Name>
+               <Description ru="Ип Capmonster 2" en="Capmonster 2 IP"/>
+               <SectionName ru="Капча" en="Captcha"/>
+               <VisibilityConditionValue>capmonster</VisibilityConditionValue>
+               <VisibilityConditionVariable>captcha_solver</VisibilityConditionVariable>
+               <Type>FixedString</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedString</AllowedTypes>
+               <Value></Value>
+               <NotEmpty>1</NotEmpty>
+          </Model>
+          <Defaults/>
+     </ModelList>
+</BrowserAutomationStudioProject>

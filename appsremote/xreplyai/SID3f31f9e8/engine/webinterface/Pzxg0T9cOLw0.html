@@ -1,0 +1,584 @@
+<html><head><meta charset="UTF-8"><meta name="http-equiv" content="Content-type: text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"><script src="https://bablosoft.com/buildinterface/jquery/jquery.min.js?v=2" type="text/javascript" charset="utf-8"></script> <script src="https://bablosoft.com/buildinterface/uikit/js/uikit.js?v=2" type="text/javascript" charset="utf-8"></script> <script src="https://bablosoft.com/buildinterface/uikit/js/uikit-icons.js?v=2" type="text/javascript" charset="utf-8"></script> <script src="https://bablosoft.com/buildinterface/charts/utils.js?v=2" type="text/javascript" charset="utf-8"></script> <script src="https://bablosoft.com/buildinterface/charts/charts.js?v=2" type="text/javascript" charset="utf-8"></script> <script src="https://bablosoft.com/buildinterface/filesaver/FileSaver.min.js?v=2" type="text/javascript" charset="utf-8"></script> <script src="https://bablosoft.com/buildinterface/interface-extensions/extensions.js?v=2" type="text/javascript" charset="utf-8"></script> <script src="https://bablosoft.com/buildinterface/bas-api/bas-api.js?v=2" type="text/javascript" charset="utf-8"></script><link rel="stylesheet" href="https://bablosoft.com/buildinterface/uikit/css/uikit.css"><style type="text/css">#Message {
+    text-align: center;
+    font-size: small;
+}
+
+.table-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.table-cell {
+    min-height: 25px;
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+#InitializationTabHeader {
+    display: flex;
+    margin-bottom: 0px;
+}
+
+#CenterScreen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#InitializationTab {
+    margin-left: 0px;
+}
+
+#im3ii {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    height: 40px;
+    line-height: 20px;
+    font-size: small;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.cell {
+    min-height: 25px;
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+#i849rf {
+    flex-basis: 30px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+#ia45qb {
+    flex-basis: 50%;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#ic7n4b {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    height: auto;
+    line-height: 20px;
+    padding-left: 0px;
+}
+
+#Username {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    min-width: 300px;
+}
+
+#ifuhla {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    height: auto;
+    line-height: 20px;
+    padding-left: 0px;
+}
+
+.uk-alert {
+    font-size: small;
+}
+
+#Password {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    min-width: 300px;
+}
+
+#Login {
+    max-width: 300px;
+    border-radius: 5px;
+}
+
+#isdxgs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#LoginTitle {
+    text-align: center;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+}
+
+#igvfb9 {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+#igldzm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#MessageOk {
+    max-width: 300px;
+    min-width: 100px;
+}
+
+#ispdrb {
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#ia8vmt {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    line-height: 20px;
+    text-align: center;
+    font-size: small;
+}
+
+#DatabaseMessageLog {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    line-height: 20px;
+    text-align: center;
+    font-size: small;
+}
+
+#EmbeddedLanguageLog {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    line-height: 20px;
+    text-align: center;
+    font-size: small;
+}
+
+#EmbeddedLanguageTitle {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    line-height: 20px;
+    text-align: center;
+    font-size: small;
+}
+
+#ibyo87 {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    height: auto;
+    line-height: 20px;
+    font-size: small;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#ibc53b {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: small;
+    margin-bottom: 20px;
+}
+
+#AcceptScheduleType {
+    width: auto;
+}
+
+#i5fail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#iygggo {
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+
+#IconStartType {
+    margin-right: 5px;
+}
+
+.ScheduleTypeDescription {
+    color: rgb(153, 153, 153);
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-top: 5px;
+    max-width: 350px;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+}</style><script type="text/javascript">$(document).ready(function() {
+
+    /////Init api and connect to selected port, in development mode does nothing
+    Api.Init(18571)
+
+    /////Hide development elements
+    $("#InitializationTabHeader").hide()
+
+    /////Lists which accumulates messages
+    let ListOfDatabaseMessages = []
+    let ListOfEmbeddedMessages = []
+
+    /////Api event handler
+    Api.SetEventHandler(async function(EventType, EventData) {
+
+        /////Need to show login form
+        if (EventType == "login") {
+            UIkit.tab($("#InitializationTabHeader")[0]).show(1);
+
+
+            /////Fill default username and password
+            if (EventData["username"])
+                $("#key").val(EventData["username"])
+            if (EventData["password"])
+                $("#key").val(EventData["password"])
+        }
+
+        if (EventType == "run_type_select") {
+            UIkit.tab($("#InitializationTabHeader")[0]).show(5);
+            if (EventData["is_run_instant"]) {
+                $('input:radio[name="ScheduleType"]').filter('[value="Run now"]').attr('checked', true);
+            } else {
+                $('input:radio[name="ScheduleType"]').filter('[value="Shedule application"]').attr('checked', true);
+
+            }
+        }
+
+        /////On message received
+        if (EventType == "message") {
+            $("#Message").html(EventData["text"])
+            UIkit.tab($("#InitializationTabHeader")[0]).show(2);
+        }
+
+        /////Show database connection dialog
+        if (EventType == "show_database_connection") {
+            UIkit.tab($("#InitializationTabHeader")[0]).show(3);
+        }
+
+        /////Display message about database connection process
+        if (EventType == "show_database_log") {
+            if (EventData["is_final"])
+                $("#DatabaseMessageLog").html(EventData["text"])
+            /////Save log to list
+            ListOfDatabaseMessages.push(EventData["text"])
+        }
+
+        /////Show embedded connection dialog
+        if (EventType == "show_embedded_connection") {
+            UIkit.tab($("#InitializationTabHeader")[0]).show(4);
+        }
+
+        /////Display message about embedded language install process
+        if (EventType == "show_embedded_log") {
+            if (EventData["is_final"])
+                $("#EmbeddedLanguageLog").html(EventData["text"])
+            /////Save log to list
+            ListOfEmbeddedMessages.push(EventData["text"])
+        }
+
+        /////Change title of embedded language install dialog
+        if (EventType == "show_embedded_title") {
+            $("#EmbeddedLanguageTitle").html(EventData["text"])
+        }
+
+        /////Finished install embedded languages
+        if (EventType == "finished_embedded") {
+            ListOfEmbeddedMessages = []
+            UIkit.tab($("#InitializationTabHeader")[0]).show(0);
+        }
+
+        /////Finished start database
+        if (EventType == "finished_database") {
+            ListOfDatabaseMessages = []
+            UIkit.tab($("#InitializationTabHeader")[0]).show(0);
+        }
+
+    })
+
+    //Accept schedule type
+    $("#AcceptScheduleType").click(function() {
+        Api.SelectRunType($('input[name=ScheduleType]:checked').val() == "Run now");
+    })
+
+
+    /////On login button clicked
+    $("#Login").click(function() {
+        /////Show progress bar and wait for next message
+        UIkit.tab($("#InitializationTabHeader")[0]).show(0);
+
+
+        Api.Login($("#key").val(), $("#key").val())
+    })
+
+    /////On message accepted
+    $("#MessageOk").click(function() {
+        /////Show progress bar and wait for next message
+        UIkit.tab($("#InitializationTabHeader")[0]).show(0);
+        Api.MessageAccepted()
+    })
+
+    /////On run without database
+    $("#RunWithoutDatabase").click(function() {
+        /////Show progress bar and wait for next message
+        UIkit.tab($("#InitializationTabHeader")[0]).show(0);
+        Api.RunWithoutDatabase()
+    })
+
+    /////On run without database
+    $("#RunWithoutEmbeddedLog").click(function() {
+        /////Show progress bar and wait for next message
+        UIkit.tab($("#InitializationTabHeader")[0]).show(0);
+        Api.RunWithoutEmbeddedLanguage()
+    })
+
+    $("#DownloadEmbeddedLog").click(function() {
+        /////Format log of embedded language install and send it to download
+        var blob = new Blob([ListOfEmbeddedMessages.join("\n")], {
+            type: "text/plain;charset=utf-8"
+        });
+        saveAs(blob, "EmbeddedInstallLog.txt");
+    })
+
+    $("#DownloadDatabaseLog").click(function() {
+        /////Format log of database start and send it to download
+        var blob = new Blob([ListOfDatabaseMessages.join("\n")], {
+            type: "text/plain;charset=utf-8"
+        });
+        saveAs(blob, "DatabaseStartLog.txt");
+    })
+
+    /////Submit login after enter pressed
+    $('#key').keypress(function(e) {
+        var key = e.which;
+        if (key == 13) {
+            $('#Login').click();
+            return false;
+        }
+    });
+
+    /////Clear Initial messages
+    $("#DatabaseMessageLog").html("")
+    $("#EmbeddedLanguageLog").html("")
+
+    /////After everything is initialized may show body
+    $("body").fadeIn()
+
+    /////Events
+});</script></head><body style="display:none"><div id="CenterScreen">
+	<div id="InitializationTab" class="ui-tabs ui-tabs-horizontal">
+		<ul uk-tab="" id="InitializationTabHeader" class="ui-internal uk-tab">
+			<li class="ui-internal">
+				<a href="#" class="ui-internal">Progress</a>
+			</li>
+			<li class="ui-internal">
+				<a href="#" class="ui-internal">Login</a>
+			</li>
+			<li class="ui-internal">
+				<a href="#" class="ui-internal">Message</a>
+			</li>
+			<li class="ui-internal">
+				<a href="#" class="ui-internal">Database loading</a>
+			</li>
+			<li class="ui-internal">
+				<a href="#" class="ui-internal">Node.js loading</a>
+			</li>
+			<li class="ui-internal">
+				<a href="#" class="ui-internal">Start type</a>
+			</li>
+		</ul>
+		<ul class="uk-switcher ui-tab-content">
+			<li class="ui-tab">
+				<div class="table-row">
+					<div class="table-cell">
+						<div class="row">
+							<div id="i849rf" class="cell">
+								<div uk-spinner="ratio: 1.4"></div>
+							</div>
+							<div id="ia45qb" class="cell">
+								<div id="im3ii">Starting application...</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="ui-tab">
+				<div class="table-row">
+					<div class="table-cell">
+						<div id="LoginTitle">
+                            <img src="https://i.imgur.com/a2eT6qR.png" alt="Example SVG" height="175px" width="175px"><br>
+							
+						</div>
+						<div class="row">
+                            
+							<div id="igvfb9" class="cell uk-alert">
+                                
+							<span uk-icon="icon: user; ratio: 1.2"></span>
+							<span>Enter the license key</span>
+								<input placeholder="License key" id="key" type="text" autofocus="" class="uk-input">
+								
+								<div class="row">
+									<div id="isdxgs" class="cell">
+										<button id="Login" class="uk-button uk-button-primary uk-button-small">Verify</button>
+									</div>
+                                  
+								</div>
+                               
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="ui-tab">
+				<div class="table-row">
+					<div class="table-cell">
+						<div id="Message">Message text</div>
+					</div>
+				</div>
+				<div id="ispdrb" class="row">
+					<div id="igldzm" class="cell">
+						<button id="MessageOk" class="uk-button uk-button-small uk-button-default">Ok</button>
+					</div>
+				</div>
+			</li>
+			<li class="ui-tab">
+				<div class="table-row">
+					<div class="table-cell">
+						<div id="ia8vmt">
+							Database connection ...
+							<br>
+						</div>
+						<div id="DatabaseMessageLog">
+							Message log
+							<br>
+						</div>
+						<div class="row"></div>
+					</div>
+				</div>
+			</li>
+			<li class="ui-tab">
+				<div class="table-row">
+					<div class="table-cell">
+						<div id="EmbeddedLanguageTitle">
+							Javascript loding...
+							<br id="ir71ch">
+						</div>
+						<div id="EmbeddedLanguageLog">
+							Message log
+							<br>
+						</div>
+						<div class="row"></div>
+					</div>
+				</div>
+			</li>
+			<li class="ui-tab">
+				<div class="table-row">
+					<div class="table-cell">
+						<div id="ibyo87">
+							<span uk-icon="icon: clock; ratio: 1" id="IconStartType"></span>
+							When do you want to start application?
+						</div>
+						<div id="ibc53b" class="ui-radio">
+							<label class="ui-internal-label">
+								<input type="radio" name="ScheduleType" value="Run now" checked="checked" class="uk-radio ui-internal">
+								<span class="ui-internal">Run now</span>
+							</label>
+							<span class="ScheduleTypeDescription">Start application instantly, control it directly.</span>
+							<label class="ui-internal-label">
+								<input type="radio" name="ScheduleType" value="Shedule application" class="uk-radio ui-internal">
+								<span class="ui-internal">Schedule application</span>
+							</label>
+							<span class="ScheduleTypeDescription">Use this option if you want to run app later. It is possible to start it with interval, certain day of the week, etc.</span>
+						</div>
+						<div id="iygggo" class="row">
+							<div id="i5fail" class="cell">
+								<button id="AcceptScheduleType" class="uk-button uk-width-1-1 uk-button-primary uk-button-small">Continue</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+</body></html>

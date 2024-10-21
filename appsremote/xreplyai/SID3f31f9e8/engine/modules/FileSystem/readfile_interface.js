@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <%= _.template($('#input_constructor').html())({id:"Value", description:tr("File path"), default_selector: "string", disable_int:true}) %>
+  <%= _.template($('#variable_constructor').html())({id:"Save", description:tr("Variable To Save"), default_variable: "FILE_CONTENT"}) %>
+  <%= _.template($('#input_constructor').html())({id:"From", description:tr("Start position"), default_selector: "int", disable_string:true, value_number: 0,size:3}) %>
+  <%= _.template($('#input_constructor').html())({id:"To", description:tr("End position. Leave 0 to read all file."), default_selector: "int", disable_string:true, value_number: 0,size:3}) %>
+
+  <%= _.template($('#checkbox').html())({id: "Check", title: tr("Save In Base64 Format")}) %>
+
+</div>
+<div class="tooltipinternal">
+  <div class="tr tooltip-paragraph-first-fold">Read file content to the variable.</div>
+</div>
+<%= _.template($('#back').html())({action:"executeandadd", visible:true}) %>

@@ -1,0 +1,12 @@
+{
+    "Archive": false,
+    "FTP": false,
+    "Excel": false,
+    "SQL": false,
+    "ReCaptcha": false,
+    "FunCaptcha": false,
+    "HCaptcha": false,
+    "SmsReceive": false,
+    "Checksum": false,
+    "MailDeprecated": false
+}

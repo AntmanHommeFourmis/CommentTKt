@@ -1,0 +1,2 @@
+/*Browser*/
+_Idle.emulate({time: (<%= time %>), actions: <%= actions %>, onOneEll: <%if(onOneEll){%><%= onOneEllParams %><%}else{%>'disable'<%}%>, miss: <%if(miss){%><%= missParams %><%}else{%>'disable'<%}%>, delay: <%if(delay){%><%= delayParams %><%}else{%>'disable'<%}%>, filters: (<%= filters %>), hoverMode: (<%= hoverMode %>), maxRepeatSkip: (<%= maxRepeatSkip %>), overlapByPoints: (<%= overlapByPoints %>), scrollSpeed: (<%= scrollSpeed %>), reverseScroll: (<%= reverseScroll %>), mouseSpeed: <%= mouseSpeed %>})!

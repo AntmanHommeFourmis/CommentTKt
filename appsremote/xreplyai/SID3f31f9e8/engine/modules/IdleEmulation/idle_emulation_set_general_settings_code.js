@@ -1,0 +1,1 @@
+_Idle.setGeneralSettings(<%= generalSettings %>);

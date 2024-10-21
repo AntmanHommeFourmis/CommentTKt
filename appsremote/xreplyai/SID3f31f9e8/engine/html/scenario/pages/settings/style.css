@@ -1,0 +1,19 @@
+@media (max-width: 465px) {
+  .settings-page-footer {
+    flex-wrap: wrap;
+  }
+
+  .settings-page-footer > .btn-base {
+    flex: 1 1 40%;
+    margin-top: 0px;
+  }
+
+  .settings-page-footer > .btn-action {
+    flex: 1 1 100%;
+    margin-top: 4px;
+  }
+
+  .settings-page-footer > .btn-accept + .btn-cancel {
+    margin-left: 4px;
+  }
+}

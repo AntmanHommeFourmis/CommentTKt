@@ -1,0 +1,220 @@
+/*******************
+ * Progress styles *
+ *******************/
+
+.action-updater-progress > .progress-inner {
+  background: #538fb5;
+  height: 100%;
+}
+
+.action-updater-progress > .progress-label {
+  letter-spacing: -0.2px;
+  position: absolute;
+  text-align: center;
+  line-height: 18px;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 5px 0;
+  color: #fff;
+  width: 100%;
+}
+
+.action-updater-progress {
+  background: rgba(83, 143, 181, 0.3);
+  border: thin solid #538fb5;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  position: relative;
+  user-select: none;
+  margin: 0 0 20px;
+  display: flex;
+  height: 30px;
+}
+
+/*****************
+ * Logger styles *
+ *****************/
+
+.action-updater-log-message > span:first-of-type {
+  color: rgba(255, 255, 255, 1.0);
+}
+
+.action-updater-log-message > span:last-of-type {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.action-updater-log-message > span:empty + span {
+  margin-left: 0px;
+}
+
+.action-updater-log-message > span + span {
+  margin-left: 9px;
+}
+
+.action-updater-log > div + div {
+  margin-top: 8px;
+}
+
+.action-updater-log-message {
+  letter-spacing: -0.2px;
+  font-weight: normal;
+  margin-bottom: 8px;
+  line-height: 17px;
+  font-size: 13px;
+  color: #fff;
+}
+
+.action-updater-log {
+  max-height: -webkit-fill-available;
+  background: #3d3f42;
+  overflow-y: visible;
+  overflow-x: hidden;
+  padding: 24px 16px;
+  flex: 1;
+}
+
+/****************
+ * Stats styles *
+ ****************/
+
+.action-updater-stats-item + .action-updater-stats-item {
+  border-left: 1px solid #606060;
+}
+
+.action-updater-stats-item:nth-child(1) {
+  color: rgba(255, 255, 255, 0.5);
+  flex-basis: 40%;
+}
+
+.action-updater-stats-item:nth-child(2) {
+  color: #669fc2;
+}
+
+.action-updater-stats-item:nth-child(3) {
+  color: #d8695f;
+}
+
+.action-updater-stats-item > span {
+  margin-left: 8px;
+}
+
+.action-updater-stats-item {
+  border-top: 1px solid #606060;
+  justify-content: center;
+  -webkit-user-drag: none;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+  padding: 13px 16px;
+  user-select: none;
+  line-height: 15px;
+  font-weight: 500;
+  font-size: 12px;
+  display: flex;
+  flex: 1 1 30%;
+  opacity: 1;
+}
+
+.action-updater-stats {
+  border: 1px solid #606060;
+  background: #3d3f42;
+  flex-flow: row wrap;
+  border-top: none;
+  display: flex;
+}
+
+@media only screen and (max-width: 372px) {
+  .action-updater-stats-item {
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (min-width: 372px) {
+  .action-updater-stats-item {
+    flex-basis: 30%;
+  }
+}
+
+/*****************
+ * Button styles *
+ *****************/
+
+.action-updater-copy-btn:first-of-type {
+  border-top: 0px solid #606060;
+}
+
+.action-updater-copy-btn:last-of-type {
+  border-top: 1px solid #606060;
+}
+
+.action-updater-copy-btn:focus {
+  opacity: 1.0;
+  outline: 0;
+}
+
+.action-updater-copy-btn:hover {
+  opacity: 0.8;
+  outline: 0;
+}
+
+.action-updater-copy-btn {
+  transition: opacity 0.25s ease-in-out;
+  justify-content: center;
+  letter-spacing: -0.2px;
+  background: #3d3f42;
+  align-items: center;
+  user-select: none;
+  line-height: 15px;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 12px 0;
+  color: #fff;
+  display: flex;
+  width: 100%;
+  opacity: 1;
+  border: 0;
+}
+
+/****************
+ * Modal styles *
+ ****************/
+
+@media only screen and (max-width: 355px) {
+  .action-updater-modal-footer {
+    flex-direction: column;
+    min-height: 85px;
+  }
+}
+
+@media only screen and (min-width: 355px) {
+  .action-updater-modal-footer {
+    flex-direction: row;
+    min-height: 0px;
+  }
+}
+
+.action-updater-modal-content {
+  background-color: #ffffff;
+  border: 1px solid #f7f7f8;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  position: relative;
+  padding: 32px 24px;
+  user-select: none;
+}
+
+.action-updater-modal-header {
+  line-height: 18px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #606060;
+}
+
+.action-updater-modal-footer {
+  justify-content: space-between;
+  align-items: normal;
+  display: flex;
+}
+
+.action-updater-modal-body {
+  margin: 27px 0 36px;
+}

@@ -1,0 +1,204 @@
+/*****************
+ * Global styles *
+ *****************/
+.scenario-page {
+  flex-direction: column;
+  padding: 25px 20px;
+  background: #fff;
+  min-width: 325px;
+  position: fixed;
+  z-index: 100000;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+/*****************
+ * Links styles  *
+ *****************/
+
+.scenario-page-link {
+  transition: color 0.3s ease-in-out;
+  text-decoration: underline;
+  color: #9d996c;
+}
+
+.scenario-page-link:hover {
+  color: rgba(157, 153, 108, 0.8);
+  cursor: pointer;
+}
+
+.scenario-page-link:focus {
+  color: rgba(157, 153, 108, 0.8);
+  cursor: pointer;
+}
+
+/*****************
+ * Groups styles *
+ *****************/
+
+.scenario-page-group {
+  margin-top: 5px;
+}
+
+/*****************
+ * Panels styles *
+ *****************/
+
+.scenario-page-panel {
+  flex-direction: column;
+  margin-bottom: 36px;
+  margin-top: 20px;
+  display: flex;
+  flex: 1;
+}
+
+.scenario-page-panel label {
+  user-select: none;
+}
+
+/*****************
+ * Header styles *
+ *****************/
+
+.scenario-page-header {
+  user-select: none;
+  line-height: 18px;
+  color: #606060;
+}
+
+.scenario-page-header > h1 {
+  font-weight: bold;
+  font-size: 15px;
+  opacity: 1;
+  margin: 0;
+}
+
+.scenario-page-header > h2 {
+  font-weight: normal;
+  font-size: 12px;
+  opacity: 0.5;
+  margin: 0;
+}
+
+.scenario-page-header > h1 + h2 {
+  margin-top: 3px;
+}
+
+/*****************
+ * Footer styles *
+ *****************/
+
+.scenario-page-footer {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.scenario-page-footer > .btn-accept,
+.scenario-page-footer > .btn-cancel,
+.scenario-page-footer > .btn-action {
+  font-size: 13px;
+}
+
+/*****************
+ * Select styles *
+ *****************/
+
+.scenario-page-select {
+  transition: all 0.3s ease-in-out;
+  background-color: #606060;
+  letter-spacing: -0.2px;
+  border-bottom: none;
+  padding: 15px 16px;
+  line-height: 18px;
+  border-radius: 0;
+  font-weight: 500;
+  font-size: 13px;
+  color: #fff;
+  outline: 0;
+}
+
+.scenario-page-select:focus {
+  color: #fff;
+}
+
+.scenario-page-select:hover {
+  color: #fff;
+}
+
+.scenario-page-select.disabled {
+  background-color: #606060 !important;
+  opacity: 0.8;
+}
+
+.bootstrap-select > .scenario-page-select:focus,
+.bootstrap-select > .scenario-page-select:hover,
+.bootstrap-select.open > .scenario-page-select {
+  background-color: #787878;
+  outline: 0 !important;
+}
+
+.dropdown-menu > li > a.scenario-page-select-option {
+  transition: background-color 0.3s ease-in-out;
+  border: thin solid transparent;
+  justify-content: space-between;
+  background-color: #787878;
+  background-image: none;
+  padding: 15px 16px;
+  line-height: 18px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #fff;
+  display: flex;
+  outline: 0;
+}
+
+.dropdown-menu > li > a.scenario-page-select-option.active:hover,
+.dropdown-menu > li > a.scenario-page-select-option.active,
+.dropdown-menu > li > a.scenario-page-select-option:hover {
+  background-color: #606060;
+  background-image: none;
+  color: #fff;
+}
+
+/*****************
+ * Notify styles *
+ *****************/
+
+.scenario-page-notify {
+  border: 1px dashed #606060;
+  background: #f7f7f8;
+  padding: 16px 20px;
+  user-select: none;
+  margin-top: 5px;
+}
+
+.scenario-page-notify-text {
+  background: url(../icons/angle.svg) no-repeat;
+  letter-spacing: -0.2px;
+  padding: 0 0 0 30px;
+  line-height: 18px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #606060;
+}
+
+.scenario-page-notify.warning {
+  border: 1px solid #d8695f;
+}
+
+.warning > .scenario-page-notify-text {
+  background-image: url(../icons/caution.svg);
+}
+
+.scenario-page-notify + .scenario-page-notify {
+  margin-top: 12px;
+}
+
+.scenario-page-notify-text + .scenario-page-notify-text {
+  margin-top: 12px;
+  margin-left: 0px;
+}

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BrowserAutomationStudioProject>
+     <Script>RS(&quot;threads&quot;, false, false)!
+RESOURCE_1 = _result().get()
+
+section(RESOURCE_1 /*{{threads}}*/,100000 /*100000*/,100000 /*100000*/,0,function(){
+   section_start(&quot;Initialize&quot;, 0)!
+
+   section_end()!
+
+   section_start(&quot;Set PROXY to {{proxy}}&quot;, 826)!
+   /*Dat:eyJzIjoic2V0dmFyaWFibGUiLCJlIjoiZXhlY3V0ZWFuZGFkZCIsImQiOlt7ImlkIjoiU2V0VmFyaWFibGVOYW1lIiwidHlwZSI6InZhciIsImRhdGEiOiJQUk9YWSJ9LHsiaWQiOiJTZXRWYXJpYWJsZVZhbHVlIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiJ7e3Byb3h5fX0iLCJjbGFzcyI6InN0cmluZyJ9XX0=*/
+   R(&quot;proxy&quot;)!
+   RESOURCE_687119 = _result().get()
+   VAR_PROXY = RESOURCE_687119
+   section_end()!
+
+   section_start(&quot;Log Use Proxy [[PROXY]]&quot;, 2717)!
+   /*Dat:eyJzIjoibG9nIiwiZSI6ImV4ZWN1dGVhbmRhZGQiLCJkIjpbeyJpZCI6IkxvZ1RleHQiLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IlVzZSBQcm94eSBbW1BST1hZXV0iLCJjbGFzcyI6InN0cmluZyJ9XX0=*/
+   log(&quot;Use Proxy &quot; + VAR_PROXY)
+   section_end()!
+
+   section_start(&quot;Http client proxy [[PROXY]]&quot;, 10403)!
+   /*Dat:eyJzIjoiaHR0cGNsaWVudHByb3h5IiwiZSI6ImFkZCIsImQiOlt7ImlkIjoiUHJveHlUZXh0IiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiJbW1BST1hZXV0iLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJQcm94eVR5cGUiLCJ0eXBlIjoic2VsZWN0IiwiZGF0YSI6InNvY2tzNSJ9LHsiaWQiOiJQcm94eUxvZ2luIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiIiLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJQcm94eVBhc3N3b3JkIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiIiLCJjbGFzcyI6InN0cmluZyJ9XX0=*/
+   var hash = proxy_parse(VAR_PROXY)
+   hash[&quot;IsHttp&quot;] = false
+   var login = &quot;&quot;
+   var password = &quot;&quot;
+   if(login.length &gt; 0 &amp;&amp; password.length &gt; 0 )
+   {
+   hash[&quot;name&quot;] = login
+   hash[&quot;password&quot;] = password
+   }
+   http_client_set_proxy(hash[&quot;server&quot;], hash[&quot;Port&quot;], hash[&quot;IsHttp&quot;], hash[&quot;name&quot;], hash[&quot;password&quot;])
+   section_end()!
+
+   section_start(&quot;Get http://check2ip.com/&quot;, 9312)!
+   /*Dat:eyJzIjoiaHR0cGNsaWVudGdldCIsImUiOiJleGVjdXRlYW5kYWRkIiwiZCI6W3siaWQiOiJWYWx1ZSIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoiaHR0cDovL2NoZWNrMmlwLmNvbS8iLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJDaGVjayIsInR5cGUiOiJjaGVjayIsImRhdGEiOnRydWV9XX0=*/
+   http_client_get(&quot;http://check2ip.com/&quot;)!
+   section_end()!
+
+   section_start(&quot;Http client get content and save to SAVED_CONTENT variable&quot;, 28396)!
+   /*Dat:eyJzIjoiaHR0cGNsaWVudGNvbnRlbnQiLCJlIjoiZXhlY3V0ZWFuZGFkZCIsImQiOlt7ImlkIjoiU2F2ZSIsInR5cGUiOiJ2YXIiLCJkYXRhIjoiU0FWRURfQ09OVEVOVCJ9XX0=*/
+   VAR_SAVED_CONTENT = http_client_content()
+   section_end()!
+
+   section_start(&quot;Set IS_GOOD to !(([[SAVED_CONTENT]]).indexOf(\u0022IP IS BLACKLISTED\u0022) \u003e= 0)&quot;, 24750)!
+   /*Dat:eyJzIjoic2V0dmFyaWFibGUiLCJlIjoiZXhlY3V0ZWFuZGFkZCIsImQiOlt7ImlkIjoiRXhwcmVzc2lvblZhbHVlIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiJbW1NBVkVEX0NPTlRFTlRdXSIsImNsYXNzIjoic3RyaW5nIn0seyJpZCI6IkV4cHJlc3Npb25WYWx1ZUNvbmZpcm0iLCJ0eXBlIjoiY29uc3RyIiwiZGF0YSI6IiEoKFtbU0FWRURfQ09OVEVOVF1dKS5pbmRleE9mKFwiSVAgSVMgQkxBQ0tMSVNURURcIikgPj0gMCkiLCJjbGFzcyI6ImV4cHJlc3Npb24ifSx7ImlkIjoiU2V0VmFyaWFibGVOYW1lIiwidHlwZSI6InZhciIsImRhdGEiOiJJU19HT09EIn0seyJpZCI6IlNldFZhcmlhYmxlVmFsdWUiLCJ0eXBlIjoiY29uc3RyIiwianNvbiI6Ilt7XCJuYW1lXCI6XCJyZXN1bHRcIixcImlkXCI6XCIwXCIsXCJ4XCI6MjUwMixcInlcIjoyMDUwfSx7XCJuYW1lXCI6XCJ2YWx1ZVwiLFwiZGF0YVwiOlwiXFxcIklQIElTIEJMQUNLTElTVEVEXFxcIlwiLFwiZGF0YW9yaWdpbmFsXCI6XCJJUCBJUyBCTEFDS0xJU1RFRFwiLFwiZGF0YXR5cGVcIjpcInN0cmluZ1wiLFwiaWRcIjpcIjFcIixcInhcIjoxNzE2LFwieVwiOjIxMTd9LHtcIm5hbWVcIjpcInZhbHVlXCIsXCJkYXRhXCI6XCJbW1NBVkVEX0NPTlRFTlRdXVwiLFwiZGF0YW9yaWdpbmFsXCI6XCJbW1NBVkVEX0NPTlRFTlRdXVwiLFwiZGF0YXR5cGVcIjpcInN0cmluZ1wiLFwiaWRcIjpcIjJcIixcInhcIjoxNzM5LFwieVwiOjIwMDJ9LHtcIm5hbWVcIjpcImNvbnRhaW5zXCIsXCJpZFwiOlwiM1wiLFwieFwiOjIwMDAsXCJ5XCI6MjA1MH0se1widHlwZVwiOlwibGlua1wiLFwic291cmNlXCI6e1wiaWRcIjpcIjJcIixcInBvcnRcIjpcIi1cIn0sXCJ0YXJnZXRcIjp7XCJpZFwiOlwiM1wiLFwicG9ydFwiOlwic3RyaW5nXCJ9fSx7XCJ0eXBlXCI6XCJsaW5rXCIsXCJzb3VyY2VcIjp7XCJpZFwiOlwiMVwiLFwicG9ydFwiOlwiLVwifSxcInRhcmdldFwiOntcImlkXCI6XCIzXCIsXCJwb3J0XCI6XCJ2YWx1ZVwifX0se1wibmFtZVwiOlwibm90XCIsXCJpZFwiOlwiNFwiLFwieFwiOjIyNzMsXCJ5XCI6MjA3OH0se1widHlwZVwiOlwibGlua1wiLFwic291cmNlXCI6e1wiaWRcIjpcIjRcIixcInBvcnRcIjpcIi1cIn0sXCJ0YXJnZXRcIjp7XCJpZFwiOlwiMFwiLFwicG9ydFwiOlwiLVwifX0se1widHlwZVwiOlwibGlua1wiLFwic291cmNlXCI6e1wiaWRcIjpcIjNcIixcInBvcnRcIjpcIi1cIn0sXCJ0YXJnZXRcIjp7XCJpZFwiOlwiNFwiLFwicG9ydFwiOlwidmFsdWVcIn19XSIsImRhdGEiOiIhKChbW1NBVkVEX0NPTlRFTlRdXSkuaW5kZXhPZihcIklQIElTIEJMQUNLTElTVEVEXCIpID49IDApIiwiY2xhc3MiOiJleHByZXNzaW9uIn1dfQ==*/
+   VAR_IS_GOOD = !((VAR_SAVED_CONTENT).indexOf(&quot;IP IS BLACKLISTED&quot;) &gt;= 0)
+   section_end()!
+
+   section_start(&quot;If [[IS_GOOD]]&quot;, 14114)!
+   /*Dat:eyJzIjoiaWYiLCJkIjpbeyJpZCI6IklmRXhwcmVzc2lvbiIsInR5cGUiOiJjb25zdHIiLCJkYXRhIjoiW1tJU19HT09EXV0iLCJjbGFzcyI6ImV4cHJlc3Npb24ifSx7ImlkIjoiSWZFbHNlIiwidHlwZSI6ImNoZWNrIiwiZGF0YSI6ZmFsc2V9XX0=*/
+   _if(VAR_IS_GOOD,function(){
+   section_insert()
+      section_start(&quot;Save result [[PROXY]]&quot;, 4296)!
+      /*Dat:eyJzIjoicmVzdWx0IiwiZSI6ImV4ZWN1dGVhbmRhZGQiLCJkIjpbeyJpZCI6IlZhbHVlIiwidHlwZSI6ImNvbnN0ciIsImRhdGEiOiJbW1BST1hZXV0iLCJjbGFzcyI6InN0cmluZyJ9LHsiaWQiOiJTZWxlY3QiLCJ0eXBlIjoic2VsZWN0IiwiZGF0YSI6IjEifV19*/
+      result(VAR_PROXY, 0)
+      section_end()!
+
+   })!
+   section_end()!
+
+})!</Script>
+     <ScriptName>CheckProxiesForBlacklist</ScriptName>
+     <ScriptVersion>1.0.0</ScriptVersion>
+     <AvailableLanguages>en,ru</AvailableLanguages>
+     <OutputTitle1 ru="" en="Good"/>
+     <OutputTitle2 ru="" en="Second Results"/>
+     <OutputTitle3 ru="" en="Third Results"/>
+     <OutputTitle4 ru="" en="Fourth Results"/>
+     <OutputTitle5 ru="" en="Fifth Results"/>
+     <OutputTitle6 ru="" en="Sixth Results"/>
+     <OutputTitle7 ru="" en="Seventh Results"/>
+     <OutputTitle8 ru="" en="Eighth Results"/>
+     <OutputTitle9 ru="" en="Ninth Results"/>
+     <OutputVisible1>1</OutputVisible1>
+     <OutputVisible2>0</OutputVisible2>
+     <OutputVisible3>0</OutputVisible3>
+     <OutputVisible4>0</OutputVisible4>
+     <OutputVisible5>0</OutputVisible5>
+     <OutputVisible6>0</OutputVisible6>
+     <OutputVisible7>0</OutputVisible7>
+     <OutputVisible8>0</OutputVisible8>
+     <OutputVisible9>0</OutputVisible9>
+     <ModelList>
+          <Model>
+               <Name>proxy</Name>
+               <Description ru="Прокси" en="Proxy"/>
+               <SectionName ru="" en=""/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>LinesFromFile</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>LinesFromFile</AllowedTypes>
+               <Filename></Filename>
+               <Clean>0</Clean>
+               <Read>1</Read>
+               <Mix>0</Mix>
+               <MaxSuccess>1</MaxSuccess>
+               <MaxFail>1</MaxFail>
+               <MaxSimultaneous>1</MaxSimultaneous>
+               <Interval>5000</Interval>
+               <ReloadInterval>0</ReloadInterval>
+               <RenewInterval>-1</RenewInterval>
+               <Greedy>0</Greedy>
+          </Model>
+          <Defaults/>
+          <Model>
+               <Name>threads</Name>
+               <Description ru="Потоки" en="Threads"/>
+               <SectionName en=""/>
+               <VisibilityConditionValue></VisibilityConditionValue>
+               <VisibilityConditionVariable></VisibilityConditionVariable>
+               <Type>FixedInteger</Type>
+               <IsAdvanced>0</IsAdvanced>
+               <Visible>1</Visible>
+               <Enabled>1</Enabled>
+               <AllowedTypes>FixedInteger</AllowedTypes>
+               <Value>100</Value>
+               <MinValue>1</MinValue>
+               <MaxValue>1000</MaxValue>
+          </Model>
+          <Defaults/>
+     </ModelList>
+</BrowserAutomationStudioProject>
